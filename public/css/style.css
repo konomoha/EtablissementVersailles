@@ -1,0 +1,17 @@
+#textAccueil{
+    display: flex;
+    flex-direction: column;
+    vertical-align: middle;
+    justify-content: center;
+    min-height: 85vh;
+}
+
+#test{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#formConnexion{
+    min-height: 80vh;
+}
