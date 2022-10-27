@@ -3,7 +3,29 @@
 {% block title %}Carte des établissements scolaires{% endblock %}
 
 {% block body %}
-
-    <div id="map" data-path="{{path('app_map_coordonnees')}}"></div>
-
+    <h2 class="text-center my-4">Liste des établissements scolaires de Versailles</h2>
+    <div class="mx-auto row justify-content-around col-5">
+        <div class="form-check mx-auto col-4">
+            <div id="buttonEcole">
+                <input class="form-check-input mb-1" type="checkbox" name="inlineRadioOptions" checked>
+                <label class="form-check-label" for="ecole">Ecole</label>
+            </div>
+        </div>
+        <div class="form-check col-4">
+            <div id="buttonCollege">
+                <input class="form-check-input mb-1" type="checkbox" name="inlineRadioOptions"checked>
+                <label class="form-check-label" for="college">Collège</label>
+            </div>
+        </div>
+        <div class="form-check col-4">
+            <div id="buttonLycee">
+                <input class="form-check-input mb-1" type="checkbox" name="inlineRadioOptions" checked>
+                <label class="form-check-label" for="lycee">Lycée</label>
+            </div>
+        </div>
+    </div>
+    <div id="divMap" class="pb-5">
+        <div id="map" data-path="{{path('app_map_coordonnees')}}">
+        </div>
+    </div>
 {% endblock %}
