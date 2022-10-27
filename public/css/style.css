@@ -18,9 +18,21 @@
 
 #map{
     min-height: 80vh;
+}
+
+.conteneur_form{
+    display: flex!important;
+    justify-content: space-around!important;
+}
+
 form{
-    display: flex;
-    justify-content: s;
+    margin: 0px!important;
+
+}
+
+form div div{
+    display: flex!important;
+    justify-content: space-around!important;
 }
 
 .col-form-label{
