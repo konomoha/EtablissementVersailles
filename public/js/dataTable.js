@@ -1,3 +1,7 @@
 $(document).ready(function() {
-    $('#tabListe').DataTable();
+    $('#tabListe').DataTable({
+        language: {
+            url: '/js/dataTable.french.json'
+        }
+    });
 });

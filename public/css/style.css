@@ -15,3 +15,12 @@
 #formConnexion{
     min-height: 80vh;
 }
+
+form{
+    display: flex;
+    justify-content: s;
+}
+
+.col-form-label{
+    width: 45%!important;
+}

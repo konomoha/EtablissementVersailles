@@ -5,13 +5,13 @@
 {% block body %}
     <div id="textAccueil" class="card text-center">
     {% if app.user %}
-        <div class="card-body" id="test">
+        <div class="card-body">
             <h4 class="card-title">Bienvenue {{ app.user.userIdentifier }} !</h4>
             <p class="card-text col-4 mx-auto py-2">Cliquez ci-dessous pour accéder à la liste des établissements scolaires de Versailles.</p>
             <a href={{path("app_liste")}} class="btn btn-primary col-1.5 mx-auto">Liste des établissements scolaires</a>
         </div>
     {% else %}
-        <div class="card-body" id="test">
+        <div class="card-body">
             <h4 class="card-title">Bienvenue sur notre site internet !</h4>
             <p class="card-text col-4 mx-auto py-2">Sur notre site, vous pourrez retrouver la liste de tous les établissements scolaires de Versailles lorsque vous êtes connecté. 
             Cliquez ci-dessous pour vous connecter.</p>
