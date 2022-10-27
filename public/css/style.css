@@ -42,14 +42,23 @@
     align-items: center;
 }
 #map{
-    height: 500px;
+  height: 500px;
     width: 800px;
+}
 
+.conteneur_form{
+    display: flex!important;
+    justify-content: space-around!important;
 }
 
 form{
-    display: flex;
-    justify-content: s;
+    margin: 0px!important;
+
+}
+
+form div div{
+    display: flex!important;
+    justify-content: space-around!important;
 }
 
 .col-form-label{
