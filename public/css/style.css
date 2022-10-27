@@ -16,6 +16,8 @@
     min-height: 80vh;
 }
 
+#map{
+    min-height: 80vh;
 form{
     display: flex;
     justify-content: s;
