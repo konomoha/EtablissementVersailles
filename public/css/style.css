@@ -16,8 +16,37 @@
     min-height: 80vh;
 }
 
+#buttonEcole{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#buttonCollege{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#buttonLycee{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#buttonEcole input, #buttonCollege input, #buttonLycee input{
+    margin-right: 5px;
+}
+#divMap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 #map{
-    min-height: 80vh;
+    height: 500px;
+    width: 800px;
+
+}
+
 form{
     display: flex;
     justify-content: s;
