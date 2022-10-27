@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    var map = L.map('map').setView([48.79866947468732, 2.1310106623163603], 13);
+    var map = L.map('map').setView([48.801408, 2.130122], 14);
     // console.log(map);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -37,8 +37,8 @@ $(document).ready(function(){
 
         for(let i = 0; i < response.length; i++)
         {
-            L.marker([response[i].latitude, response[i].longitude], 13).addTo(map)
-            .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+            L.marker([response[i].latitude, response[i].longitude]).addTo(map)
+            .bindPopup(response[i].nom)
             .openPopup();
         }
     }
