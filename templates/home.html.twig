@@ -5,8 +5,8 @@
 {% block body %}
     <div id="textAccueil" class="card text-center">
     {% if app.user %}
-        <div class="card-body">
-            <h4 class="card-title">Bienvenue {{ app.user.userIdentifier }} !</h4>
+        <div class="card-body" id="test">
+            <h4 class="card-title" id="testjs" data-path="{{path('app_map')}}">Bienvenue {{ app.user.userIdentifier }} !</h4>
             <p class="card-text col-4 mx-auto py-2">Cliquez ci-dessous pour accéder à la liste des établissements scolaires de Versailles.</p>
             <a href={{path("app_liste")}} class="btn btn-primary col-1.5 mx-auto">Liste des établissements scolaires</a>
         </div>
