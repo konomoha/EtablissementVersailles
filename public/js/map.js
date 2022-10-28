@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+    var markList = [];
     var markerTab=[];
     var map = L.map('map').setView([48.801408, 2.130122], 14);
 
@@ -44,19 +44,20 @@ $(document).ready(function(){
             }});
     })
 
-    function affichagePoints(response, type){
+    function affichagePoints(response, type)
+    {
 
         for(let i = 0; i < response.length; i++)
         { 
             
             if(response[i].type === type){
 
-               let mark = L.marker([response[i].latitude, response[i].longitude]).addTo(map).bindPopup(response[i].nom)
+               let mark = L.marker([response[i].latitude, response[i].longitude]).bindPopup(response[i].nom)
                .openPopup();
 
                 markerTab.push(mark);
 
-                map.addLayer(markerTab[i]);
+                map.addLayer(mark);
 
             }  
         } 
@@ -64,11 +65,12 @@ $(document).ready(function(){
         console.log(markerTab);
     }
 
-    function removePoints(response, type){
+    function removePoints(response, type)
+    {
 
-        for(let i = 0; i < markerTab.length; i++){
+        for(let e = 0; e < response.length; e++){
             
-            for(let e = 0; e < response.length; e++){
+            for(let i = 0; i < markerTab.length; i++){
 
                 if(response[e].type === type){
 
@@ -81,6 +83,69 @@ $(document).ready(function(){
             } 
         }
         // console.log(markerTab)
+    }
+
+    $('#rechercheEtablissement').keypress(function(e){
+
+        let keycode = (e.keyCode ? e.keyCode : e.which);
+        let myurl = $(this).attr("data-path");
+        // console.log(myurl);
+        if(keycode == '13'){
+            $.ajax({
+                type: 'POST',
+                url: myurl,
+                datatype: 'json',
+                success: function(response)
+                {
+                    rechercheEtablissement(response);
+                },
+
+                error: function(){
+                    console.log('erreur');
+                }
+            })
+        }
+    });
+
+    function rechercheEtablissement(response)
+    {
+        let search = $('#rechercheEtablissement').val();
+        let searchList = [];
+
+        if(markList){
+
+            // console.log('ok marklist');
+            for(let a = 0; a < markList.length; a++){
+
+                map.removeLayer(markList[a]);
+            }
+            markList = [];
+        }
+
+        for(let i = 0; i < response.length; i++){
+
+            if(search != "" && response[i].nom.toUpperCase().includes(search.toUpperCase())){
+
+                if(searchList.includes(response[i].nom)){
+
+                    console.log(response[i].nom + " est déjà présent dans searchList");
+                }
+                else{
+
+                    let mark = new L.marker([response[i].latitude, response[i].longitude]).bindPopup(response[i].nom)
+                    .openPopup();
+
+                    searchList.push(response[i].nom);
+                    markList.push(mark);
+
+                    map.addLayer(mark);
+                    // searchList= [];
+                    
+                }
+            }
+        }
+        // console.log(markList.length);
+        
     }
 
 });
