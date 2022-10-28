@@ -73,3 +73,29 @@ form div div{
 .col-form-label{
     width: 45%!important;
 }
+
+#linkMap, #linkListe{
+    color: black!important;
+}
+
+#tabListe_paginate{
+    margin-bottom: 75px;
+}
+
+#tabListe_filter{
+    margin-bottom: 25px;
+}
+
+#tabListe_length{
+    margin-bottom: 25px;
+}
+
+#tabListe{
+    border-top: 1px solid lightgrey;
+    border-bottom-color: lightgrey;
+    border-collapse: collapse;
+}
+
+#tabliste{
+    border-bottom: 1px solid white;
+}
