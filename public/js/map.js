@@ -144,8 +144,7 @@ $(document).ready(function(){
                 }
             }
         }
-        // console.log(markList.length);
-        
+
     }
 
 });
