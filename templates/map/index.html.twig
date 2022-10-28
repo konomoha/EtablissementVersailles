@@ -4,7 +4,7 @@
 
 {% block body %}
     <h2 class="text-center my-4">Liste des établissements scolaires de Versailles</h2>
-    <div class="mx-auto row justify-content-around col-5">
+    <div class="mx-auto row justify-content-around col-5 mb-3">
         <div class="form-check mx-auto col-4">
             <div id="buttonEcole">
                 <input class="bouttoncheck form-check-input mb-1" type="checkbox" name="Ecole" data-path="{{path('app_map_coordonnees')}}">
@@ -22,6 +22,9 @@
                 <input class="bouttoncheck form-check-input mb-1" type="checkbox" name="Lycée" data-path="{{path('app_map_coordonnees')}}">
                 <label class="form-check-label" for="Lycee">Lycée</label>
             </div>
+        </div>
+        <div>
+            <button id="submit" class="btn btn-primary">Rechercher</button>
         </div>
     </div>
     <div id="divMap" class="pb-5">

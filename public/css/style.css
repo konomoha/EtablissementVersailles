@@ -6,7 +6,13 @@
     min-height: 85vh;
 }
 
-#test{
+#accueilConnecté{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#accueilConnexion{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,14 +39,17 @@
     justify-content: center;
     align-items: center;
 }
+
 #buttonEcole input, #buttonCollege input, #buttonLycee input{
     margin-right: 5px;
 }
+
 #divMap{
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 #map{
   height: 500px;
     width: 800px;

@@ -1,8 +1,8 @@
 $(document).ready(function(){
 
     var markerTab=[];
-    var map = L.map('map').setView([48.801408, 2.130122], 14);
-
+    var map = L.map('map').setView([48.801408, 2.130122], 13.5);
+    
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright%22%3EOpenStreetMap</a>'
@@ -43,7 +43,7 @@ $(document).ready(function(){
                 console.log('erreur, ça ne fonctionne pas');
             }});
     })
-
+    
     function affichagePoints(response, type){
 
         for(let i = 0; i < response.length; i++)
