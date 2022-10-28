@@ -29,7 +29,7 @@ class MapController extends AbstractController
 
 
     #[Route('/map/coordonnees', name: 'app_map_coordonnees')]
-    public function coordonnée(Request $request): Response
+    public function coordonnee(Request $request): Response
     {
         $response = $this->client->request(
             'GET',

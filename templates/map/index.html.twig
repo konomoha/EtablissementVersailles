@@ -7,25 +7,25 @@
     <div class="mx-auto row justify-content-around col-5">
         <div class="form-check mx-auto col-4">
             <div id="buttonEcole">
-                <input class="form-check-input mb-1" type="checkbox" name="inlineRadioOptions" checked>
-                <label class="form-check-label" for="ecole">Ecole</label>
+                <input class="bouttoncheck form-check-input mb-1" type="checkbox" name="Ecole" data-path="{{path('app_map_coordonnees')}}">
+                <label class="form-check-label" for="Ecole">Ecole</label>
             </div>
         </div>
         <div class="form-check col-4">
             <div id="buttonCollege">
-                <input class="form-check-input mb-1" type="checkbox" name="inlineRadioOptions"checked>
-                <label class="form-check-label" for="college">Collège</label>
+                <input class="bouttoncheck form-check-input mb-1" type="checkbox" name="Collège" data-path="{{path('app_map_coordonnees')}}">
+                <label class="form-check-label" for="College">Collège</label>
             </div>
         </div>
         <div class="form-check col-4">
             <div id="buttonLycee">
-                <input class="form-check-input mb-1" type="checkbox" name="inlineRadioOptions" checked>
-                <label class="form-check-label" for="lycee">Lycée</label>
+                <input class="bouttoncheck form-check-input mb-1" type="checkbox" name="Lycée" data-path="{{path('app_map_coordonnees')}}">
+                <label class="form-check-label" for="Lycee">Lycée</label>
             </div>
         </div>
     </div>
     <div id="divMap" class="pb-5">
-        <div id="map" data-path="{{path('app_map_coordonnees')}}">
+        <div id="map">
         </div>
     </div>
 {% endblock %}
