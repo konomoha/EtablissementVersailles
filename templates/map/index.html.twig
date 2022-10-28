@@ -4,24 +4,27 @@
 
 {% block body %}
     <h2 class="text-center my-4">Liste des établissements scolaires de Versailles</h2>
-    <div class="mx-auto row justify-content-around col-5">
+    <div class="mx-auto row justify-content-around col-5 mb-3">
         <div class="form-check mx-auto col-4">
             <div id="buttonEcole">
-                <input class="form-check-input mb-1" type="checkbox" name="inlineRadioOptions" checked>
-                <label class="form-check-label" for="ecole">Ecole</label>
+                <input class="form-check-input mb-1" type="checkbox" name="inlineRadioOptions1" value="Ecole" checked>
+                <label class="form-check-label" for="Ecole">Ecole</label>
             </div>
         </div>
         <div class="form-check col-4">
             <div id="buttonCollege">
-                <input class="form-check-input mb-1" type="checkbox" name="inlineRadioOptions"checked>
-                <label class="form-check-label" for="college">Collège</label>
+                <input class="form-check-input mb-1" type="checkbox" name="inlineRadioOptions2" value="Collège" checked>
+                <label class="form-check-label" for="Collège">Collège</label>
             </div>
         </div>
         <div class="form-check col-4">
             <div id="buttonLycee">
-                <input class="form-check-input mb-1" type="checkbox" name="inlineRadioOptions" checked>
+                <input class="form-check-input mb-1" type="checkbox" name="inlineRadioOptions3" value="Lycée" checked>
                 <label class="form-check-label" for="lycee">Lycée</label>
             </div>
+        </div>
+        <div>
+            <button id="submit" class="btn btn-primary">Rechercher</button>
         </div>
     </div>
     <div id="divMap" class="pb-5">
