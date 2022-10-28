@@ -1,67 +1,86 @@
 $(document).ready(function(){
 
-    var map = L.map('map').setView([48.801408, 2.130122], 13    );
-    // console.log(map);
+    var markerTab=[];
+    var map = L.map('map').setView([48.801408, 2.130122], 13.5);
+    
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright%22%3EOpenStreetMap</a>'
     }).addTo(map);
-    
-    function affichageGlobal(){
 
-        let myurl = $('#map').attr("data-path");
+    $('.bouttoncheck').click(function(){
+
+        let type = ($(this).attr('name'));
+        let checkbox = $(this);
+        let myurl = $(this).attr("data-path");
+        console.log(myurl);
 
         $.ajax({
             type: 'POST',
             url: myurl,
             datatype: 'json',
             data:{
-                'monstring' : 'youhou!'
+                'monstring' : 'test string'
             },
 
             success: function(response)
             {
-                // console.log(response)
-                affichagePoint(response);
+
+                if(checkbox.is(':checked')){
+
+                    // console.log(response);
+                    affichagePoints(response, type)
+                }
+                else{
+
+                    // console.log('tout est décoché');
+                    removePoints(response, type)
+                };
+
             },
             error: function()
             {
-                console.log('ça marche pas');
-            }
-        })
-    };
+                console.log('erreur, ça ne fonctionne pas');
+            }});
+    })
+    
+    function affichagePoints(response, type){
 
-    affichageGlobal();
+        for(let i = 0; i < response.length; i++)
+        { 
+            
+            if(response[i].type === type){
 
-    function affichagePoint(response){
-        $(document).ready(function() {
-            $('#submit').click(function() {
-                let ecole = $("input[type=checkbox][name=inlineRadioOptions1]:checked").val();
-                let college = $("input[type=checkbox][name=inlineRadioOptions2]:checked").val();
-                let lycee = $("input[type=checkbox][name=inlineRadioOptions3]:checked").val();
-            })
-            var listeEcole = {}, prop;
-            response.forEach(element => {
-                if (response.type===ecole){
-                    var listeEcole = clone(response);
+               let mark = L.marker([response[i].latitude, response[i].longitude]).addTo(map).bindPopup(response[i].nom)
+               .openPopup();
 
+                markerTab.push(mark);
+
+                map.addLayer(markerTab[i]);
+
+            }  
+        } 
+
+        console.log(markerTab);
+    }
+
+    function removePoints(response, type){
+
+        for(let i = 0; i < markerTab.length; i++){
+            
+            for(let e = 0; e < response.length; e++){
+
+                if(response[e].type === type){
+
+                    if(response[e].nom === markerTab[i]._popup._content){
+
+                        map.removeLayer(markerTab[i]);
+                        markerTab.splice(i, 1);
+                     }
                 }
-            });
-        });
-
-        for(let i = 0; i < listeEcole.length; i++)
-        {             
-                L.marker([listeEcole[i].latitude, listeEcole[i].longitude]).addTo(map)
-                .bindPopup(listeEcole[i].nom)
-                .openPopup();
+            } 
         }
-        
-        // for(let i = 0; i < response.length; i++)
-        // {             
-        //         L.marker([response[i].latitude, response[i].longitude]).addTo(map)
-        //         .bindPopup(response[i].nom)
-        //         .openPopup();
-        // }
+        // console.log(markerTab)
     }
 
 });
